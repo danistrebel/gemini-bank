@@ -8,6 +8,7 @@
 
 * **Coding Standards** Code should follow the PEP 8 coding standard.
 * **Dependency Management** This application uses Python Venv in the `venv` folder.
+* **Source Code** hosted on: https://github.com/danistrebel/gemini-bank
 
 ## Partial Code Overview
 
