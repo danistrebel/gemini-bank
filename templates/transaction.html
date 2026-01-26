@@ -15,7 +15,33 @@
   <div class="mb-3">
     {{ form.type.label(class="form-label") }}
     {{ form.type(class="form-control") }}
+    {% if user != "anonymous" and user.accounts.count() <= 1 %}
+    <div id="transfer-warning" class="alert alert-warning mt-2" style="display:none;">
+      Transfer is not possible since you have no other account to transfer to.
+    </div>
+    {% endif %}
   </div>
   {{ form.submit(class="btn btn-primary") }}
 </form>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var typeSelect = document.getElementById('type');
+    var warningAlert = document.getElementById('transfer-warning');
+
+    if (typeSelect && warningAlert) {
+      function checkType() {
+        if (typeSelect.value === 'transfer') {
+          warningAlert.style.display = 'block';
+        } else {
+          warningAlert.style.display = 'none';
+        }
+      }
+
+      typeSelect.addEventListener('change', checkType);
+      // Run on initial load in case "transfer" was already selected (e.g. by browser history)
+      checkType();
+    }
+  });
+</script>
 {% endblock %}

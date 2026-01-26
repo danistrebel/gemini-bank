@@ -8,6 +8,7 @@
 
 * **Coding Standards** Code should follow the PEP 8 coding standard.
 * **Dependency Management** This application uses Python Venv in the `venv` folder.
+* **Source Code** hosted on: https://github.com/danistrebel/gemini-bank
 
 ## Partial Code Overview
 
@@ -33,3 +34,5 @@ The UI is designed to be modern, accessible, and user-friendly, adhering to the 
     *   **High Contrast:** All text, icons, and UI elements are designed with sufficient color contrast against the background to meet WCAG 2.1 AA standards, ensuring readability for users with visual impairments.
     *   **Clear Focus States:** Interactive elements will have clear and visible focus indicators, making keyboard navigation straightforward.
     *   **Semantic HTML:** The application will use semantic HTML5 tags and ARIA (Accessible Rich Internet Applications) attributes where necessary to provide context to screen readers.
+
+
