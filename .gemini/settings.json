@@ -1,38 +1,61 @@
 {
-  "model": {
-    "chatCompression": {
-      "contextPercentageThreshold": 0.6
-    }
-  },
-  "general": {
-    "checkpointing": {
-      "enabled": true
-    }
-  },
-  "context": {
-    "fileFiltering": {
-      "respectGitIgnore": true
-    }
+  "extensions": {
+    "workspacesWithMigrationNudge": [
+      "/home/user/gcp-release-notes"
+    ]
   },
   "mcpServers": {
-    "nano-banana": {
-      "command": "/home/user/go/bin/mcp-gemini-go",
-      "env": {
-        "MCP_SERVER_REQUEST_TIMEOUT": "55000",
-        "PROJECT_ID": "strebel-workspace",
-        "GOPATH": "/home/user/go"
+    "github": {
+      "httpUrl": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer ${GITHUB_PAT}"
       }
     },
     "chrome-devtools": {
       "command": "npx",
       "args": [
         "chrome-devtools-mcp@latest",
-        "--headless=true",
-        "--viewport=1920x1080"
+        "--headless=true"
       ]
+    },
+    "nano-banana": {
+      "command": "/home/user/go/bin/mcp-gemini-go",
+      "env": {
+        "MCP_SERVER_REQUEST_TIMEOUT": "55000",
+        "GOPATH": "/home/user/go"
+      }
     }
   },
-  "privacy": {
-    "usageStatisticsEnabled": true
+  "tools": {
+    "shell": {
+      "enableInteractiveShell": true
+    }
+  },
+  "general": {
+    "preferredEditor": "vscode",
+    "previewFeatures": true,
+    "vimMode": false,
+    "disableAutoUpdate": false,
+    "enablePromptCompletion": false
+  },
+  "ide": {
+    "hasSeenNudge": true,
+    "enabled": true
+  },
+  "ui": {
+    "showMemoryUsage": true,
+    "showLineNumbers": true,
+    "showCitations": true,
+    "hideTips": false,
+    "theme": "Default"
+  },
+  "telemetry": {
+    "enabled": true,
+    "target": "gcp"
+  },
+  "security": {
+    "auth": {
+      "selectedType": "vertex-ai"
+    }
   }
 }
