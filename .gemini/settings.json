@@ -24,6 +24,17 @@
         "MCP_SERVER_REQUEST_TIMEOUT": "55000",
         "GOPATH": "/home/user/go"
       }
+    },
+    "lights": {
+      "command": "node",
+      "args": ["/home/user/mcp-light-control/build/index.js"],
+      "env": {
+        "USE_REMOTE": "true",
+        "REMOTE_CLIENT_ID": "${HUE_CLIENT_ID}",
+        "REMOTE_CLIENT_SECRET": "${HUE_CLIENT_SECRET}",
+        "REMOTE_ACCESS_TOKEN": "${HUE_ACCESS_TOKEN}",
+        "REMOTE_REFRESH_TOKEN": "${HUE_REFRESH_TOKEN}"
+      }
     }
   },
   "tools": {
