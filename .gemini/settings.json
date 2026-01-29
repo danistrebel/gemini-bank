@@ -27,7 +27,9 @@
     },
     "lights": {
       "command": "node",
-      "args": ["/home/user/mcp-light-control/build/index.js"],
+      "args": [
+        "/home/user/mcp-light-control/build/index.js"
+      ],
       "env": {
         "USE_REMOTE": "true",
         "REMOTE_CLIENT_ID": "${HUE_CLIENT_ID}",
@@ -47,7 +49,8 @@
     "previewFeatures": true,
     "vimMode": false,
     "disableAutoUpdate": false,
-    "enablePromptCompletion": false
+    "enablePromptCompletion": false,
+    "enableAutoUpdate": true
   },
   "ide": {
     "hasSeenNudge": true,
