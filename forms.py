@@ -23,5 +23,10 @@ class CreateAccountForm(FlaskForm):
 class TransactionForm(FlaskForm):
     description = TextAreaField("Description", validators=[DataRequired()])
     amount = DecimalField("Amount", validators=[DataRequired(), NumberRange(min=0)], places=2, rounding=None)
+    currency = SelectField("Currency", validators=[DataRequired()], choices=[
+        ("EUR", "EUR"), ("USD", "USD"), ("GBP", "GBP"), ("CHF", "CHF"),
+        ("SEK", "SEK"), ("NOK", "NOK"), ("DKK", "DKK"), ("PLN", "PLN"),
+        ("CZK", "CZK"), ("HUF", "HUF"), ("RON", "RON"), ("BGN", "BGN")
+    ], default="EUR")
     type = SelectField("Transaction Type", validators=[DataRequired()], choices=[("deposit","Deposit"),("transfer","Transfer")])
     submit = SubmitField("Make Transaction")

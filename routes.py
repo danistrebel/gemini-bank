@@ -3,6 +3,7 @@ from flask import request, render_template, redirect, url_for, flash
 from models import User, Account, Transaction
 from forms import RegisterForm, LoginForm, CreateAccountForm, TransactionForm
 from flask_login import login_required, login_user, logout_user, current_user
+from utils import convert_to_eur
 
 
 @login.user_loader
@@ -99,10 +100,11 @@ def transaction(id):
     form = TransactionForm()
     account = Account.query.get(id)
     if form.validate_on_submit():
+        amount_eur = convert_to_eur(form.amount.data, form.currency.data)
         if form.type.data == "deposit":
-            transaction = Transaction(amount = form.amount.data, type = form.type.data, description = form.description.data, account_id=id)
+            transaction = Transaction(amount = amount_eur, type = form.type.data, description = form.description.data, account_id=id)
         else:
-            transaction = Transaction(amount = -(form.amount.data), type = form.type.data, description = form.description.data, account_id=id)
+            transaction = Transaction(amount = -(amount_eur), type = form.type.data, description = form.description.data, account_id=id)
         db.session.add(transaction)
         account.balance += transaction.amount
         try:
