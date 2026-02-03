@@ -115,4 +115,4 @@ def transaction(id):
             flash(f"{form.type.data } failed")
             db.session.rollback()           
             return redirect(url_for('transaction', id=id))
-    return render_template("transaction.html", user = user, account = account, form = form)
+    return render_template("transaction.html", user = user, account = account, form = form, user_accounts_count = user.accounts.count())

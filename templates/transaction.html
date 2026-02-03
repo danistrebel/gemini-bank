@@ -19,6 +19,11 @@
   <div class="mb-3">
     {{ form.type.label(class="form-label") }}
     {{ form.type(class="form-control") }}
+    {% if user_accounts_count <= 1 %}
+      <div class="form-text text-warning">
+        Note: You have no other accounts to transfer to.
+      </div>
+    {% endif %}
   </div>
   {{ form.submit(class="btn btn-primary") }}
 </form>
