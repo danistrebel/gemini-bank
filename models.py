@@ -40,6 +40,18 @@ class Transaction(db.Model):
     date = db.Column(db.DateTime(), default = datetime.now)
 
 
+class RecurringPayment(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    amount = db.Column(db.Numeric(precision=10, scale=2), nullable=False)
+    description = db.Column(db.String(150), nullable=False)
+    account_id = db.Column(db.ForeignKey("account.id"), nullable=False)
+    frequency = db.Column(db.String(20), nullable=False)
+    start_date = db.Column(db.DateTime(), default = datetime.now)
+    end_date = db.Column(db.DateTime(), nullable=True)
+    next_payment_date = db.Column(db.DateTime(), nullable=False)
+    
+    account = db.relationship("Account", backref=db.backref("recurring_payments", lazy="dynamic"))
+
 
 with app.app_context():
     db.create_all()

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content%}
+<h1 class="mb-4">New Recurring Payment</h1>
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.description.label }}<br>
+        {{ form.description(class="form-control") }}
+        {% for error in form.description.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.amount.label }}<br>
+        {{ form.amount(class="form-control", type="number", step="0.01") }}
+        {{ form.currency(class="form-control") }}
+        {% for error in form.amount.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.frequency.label }}<br>
+        {{ form.frequency(class="form-control") }}
+        {% for error in form.frequency.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.start_date.label }}<br>
+        {{ form.start_date(class="form-control", type="date") }}
+        {% for error in form.start_date.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.end_date.label }}<br>
+        {{ form.end_date(class="form-control", type="date") }}
+        {% for error in form.end_date.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit(class="btn btn-primary") }}</p>
+</form>
+{% endblock %}
