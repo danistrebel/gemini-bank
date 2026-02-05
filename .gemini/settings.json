@@ -28,14 +28,14 @@
     "lights": {
       "command": "node",
       "args": [
-        "/home/user/mcp-light-control/build/index.js"
+        "/home/user/philips-hue-mcp/dist/index.js"
       ],
       "env": {
         "USE_REMOTE": "true",
-        "REMOTE_CLIENT_ID": "${HUE_CLIENT_ID}",
-        "REMOTE_CLIENT_SECRET": "${HUE_CLIENT_SECRET}",
-        "REMOTE_ACCESS_TOKEN": "${HUE_ACCESS_TOKEN}",
-        "REMOTE_REFRESH_TOKEN": "${HUE_REFRESH_TOKEN}"
+        "HUE_CLIENT_ID": "${HUE_CLIENT_ID}",
+        "HUE_CLIENT_SECRET": "${HUE_CLIENT_SECRET}",
+        "HUE_ACCESS_TOKEN": "${HUE_ACCESS_TOKEN}",
+        "HUE_REFRESH_TOKEN": "${HUE_REFRESH_TOKEN}"
       }
     }
   },
