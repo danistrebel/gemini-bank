@@ -18,6 +18,12 @@
         "--headless=true"
       ]
     },
+    "gcp-dev-knowledge": {
+      "httpUrl": "https://developerknowledge.googleapis.com/mcp",
+      "headers": {
+        "X-Goog-Api-Key": "${DEV_KNOWLEDGE_API_KEY}"
+      }
+    },
     "nano-banana": {
       "command": "/home/user/go/bin/mcp-gemini-go",
       "env": {
