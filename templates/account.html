@@ -6,6 +6,7 @@
     <h5 class="card-title">Current Balance</h5>
     <p class="card-text display-4">{{account.balance}} EUR</p>
     <a id="transaction" href="{{ url_for('transaction', id= account.id)}}" class="btn btn-primary">New Transaction</a>
+    <a href="{{ url_for('recurring_payments', id=account.id) }}" class="btn btn-info">Manage Recurring Payments</a>
   </div>
 </div>
 
