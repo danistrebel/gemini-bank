@@ -105,7 +105,7 @@ def transaction(id):
             transaction = Transaction(amount = amount_eur, type = form.type.data, description = form.description.data, account_id=id)
         else:
             if account.balance < amount_eur:
-                flash(f"Insufficient funds for {form.type.data}. Current balance: {account.balance} EUR")
+                flash(f"Insufficient funds for {form.type.data}. Current balance: {account.balance:.2f} EUR")
                 return redirect(url_for('transaction', id=id))
             transaction = Transaction(amount = -(amount_eur), type = form.type.data, description = form.description.data, account_id=id)
         db.session.add(transaction)
