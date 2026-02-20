@@ -73,43 +73,7 @@ These instructions will get you a copy of the project up and running on your loc
     flask run
     ```
 
-2.  Open your web browser and navigate to `http://127.0.0.1:5000`.
-
-## Entity Relationship Diagram (ERD)
-
-The following diagram shows the relationship between the database tables:
-
-```mermaid
-erDiagram
-    USER ||--o{ ACCOUNT : "has"
-    ACCOUNT ||--o{ TRANSACTION : "has"
-
-    USER {
-        int id PK
-        string email
-        string firstname
-        string lastname
-        string password_hash
-        datetime joined_at
-    }
-
-    ACCOUNT {
-        int id PK
-        numeric balance
-        int number
-        int user_id FK
-        datetime created_at
-    }
-
-    TRANSACTION {
-        int id PK
-        numeric amount
-        string type
-        string description
-        int account_id FK
-        datetime date
-    }
-```
+2.  Open your web browser and navigate to `http://127.0.0.1:5000`.s
 
 ## Contributing
 
